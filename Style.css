@@ -1,0 +1,119 @@
+:root{
+  --bg-top: #fff7f0;
+  --bg-bottom: #ffe9d6;
+  --panel-grad-from: rgba(255,120,60,0.95);
+  --panel-grad-to: rgba(255,200,120,0.95);
+  --glass: rgba(255,255,255,0.6);
+  --muted: #6b7280;
+  --accent: #ff7a2f;
+  --cloud-white: rgba(255,255,255,0.92);
+  --cloud-orange: rgba(255,200,150,0.9);
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+}
+
+html,body{
+  height:100%;
+  margin:0;
+}
+
+/* Sky background */
+.sky{
+  position:fixed;
+  inset:0;
+  background: linear-gradient(180deg, var(--bg-top) 0%, var(--bg-bottom) 70%);
+  z-index:-2;
+  overflow:hidden;
+}
+
+/* Cloud shapes */
+.cloud{
+  position:absolute;
+  filter: blur(6px);
+  opacity:0.95;
+  border-radius:50%;
+  box-shadow: 0 60px 120px rgba(0,0,0,0.08) inset;
+}
+
+/* white clouds */
+.cloud--white{
+  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,1), var(--cloud-white) 60%);
+}
+
+/* orange clouds (sunset feel) */
+.cloud--orange{
+  background: radial-gradient(circle at 30% 30%, rgba(255,230,210,1), var(--cloud-orange) 60%);
+}
+
+/* positions and sizes */
+.cloud--one{ width:420px; height:140px; left:-120px; top:10vh; animation: drift 45s linear infinite; transform: translateZ(0); }
+.cloud--two{ width:320px; height:110px; left:20%; top:6vh; animation: drift 55s linear infinite reverse; }
+.cloud--three{ width:520px; height:160px; left:40%; top:18vh; animation: drift 65s linear infinite; opacity:0.9; }
+.cloud--four{ width:300px; height:120px; left:72%; top:8vh; animation: drift 50s linear infinite reverse; }
+
+/* drift animation */
+@keyframes drift {
+  0%{ transform: translateX(-10vw) translateY(0); }
+  50%{ transform: translateX(10vw) translateY(4vh); }
+  100%{ transform: translateX(-10vw) translateY(0); }
+}
+
+/* Weather card style */
+.weather-card{
+  border-radius:14px;
+  overflow:hidden;
+}
+
+/* Left panel */
+.app-title{
+  font-weight:700;
+  font-size:1.4rem;
+}
+
+/* Right decorative panel */
+.bg-gradient-panel{
+  background: linear-gradient(180deg, var(--panel-grad-from), var(--panel-grad-to));
+  min-height:220px;
+}
+
+/* Big temperature */
+.big-temp{
+  font-size:4rem;
+  font-weight:700;
+  text-shadow: 0 8px 18px rgba(0,0,0,0.2);
+}
+
+/* Stats */
+.stat-label{ color:var(--muted); font-size:0.8rem; }
+.stat-value{ font-weight:600; font-size:1rem; color:#0f172a; }
+
+/* Responsive tweaks */
+@media (max-width: 767px){
+  .big-temp{ font-size:3rem; }
+  .bg-gradient-panel{ min-height:170px; padding:1.5rem; }
+  .cloud{ filter: blur(4px); }
+}
+
+/* small nice touches */
+input.form-control{
+  border-radius:8px 0 0 8px;
+}
+.btn-primary{
+  background: linear-gradient(180deg, #ff7a2f,#ff5722);
+  border: none;
+}
+.card-footer{ background:transparent; border-top:0; }
+
+/* Loading spinner */
+#loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 1rem;
+}
+
+#loading .spinner-border {
+  width: 3rem;
+  height: 3rem;
+  margin-bottom: 0.5rem;
+}

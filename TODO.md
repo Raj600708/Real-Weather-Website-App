@@ -1,0 +1,4 @@
+- [x] Update Index.html: Fix CSS and JS links to match file names (Style.css, Script.js), add meta description, add loading spinner div, translate tip to English.
+- [x] Update Style.css: Add CSS for loading spinner.
+- [x] Update Script.js: Fix API key checks to both check for "YOUR_API_KEY_HERE", fix local time calculation using data.dt and data.timezone, add show/hide loading spinner, improve error messages.
+- [ ] Test the app by opening Index.html in browser.
